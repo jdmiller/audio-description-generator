@@ -1,0 +1,9 @@
+boto3>=1.34.0
+botocore>=1.34.0
+openai>=1.12.0
+pydub>=0.25.1
+webvtt-py>=0.4.6
+python-dotenv>=1.0.1
+scenedetect
+opencv-python
+tqdm

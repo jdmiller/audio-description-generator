@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Described video demo (AblePlayer)</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+<script>
+  // This MUST come before the ableplayer.min.js script
+  window.AblePlayerConfig = {
+    pathToPlayer: './' // Force it to look in the current folder
+  };
+</script>
+    <link rel="stylesheet" href="./ableplayer.min.css">
+    <script src="./ableplayer.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Text audio descriptions with auto-pause</h2>
+
+       <video id="video1" 
+              data-able-player 
+              data-path-to-player="./" 
+              data-desc-pause-default="on" 
+              data-state-descriptions="on"
+              crossorigin="anonymous"
+              preload="auto" 
+              width="100%">
+           
+        <source src="./video.mp4" type="video/mp4">
+
+        <track kind="captions" src="./captions.vtt" srclang="en" label="English Captions" default>
+
+        <track kind="descriptions" src="./descriptions.vtt" srclang="en" label="Audio Descriptions">
+
+    </video>
+</div>
+
+<script>
+    // Debugging Check
+    $(document).ready(function() {
+        if (typeof AblePlayer !== 'undefined') {
+            console.log("AblePlayer initialized successfully!");
+        } else {
+            console.error("AblePlayer failed. Check if 'translations' folder is missing.");
+        }
+    });
+</script>
+
+</body>
+</html>
